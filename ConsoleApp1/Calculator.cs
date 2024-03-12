@@ -3,8 +3,8 @@
     public class Calculator
     {
         //instance variables
-        private int prize = 0;
-        private int payment = 0;
+        private int prize;
+        private int payment;
 
         //getters and setters
         public int GetPrize()
@@ -30,7 +30,6 @@
         public void CalculateChange()
         {
             int changeTotal = payment - prize;
-            int changeCounter = changeTotal;
             Console.WriteLine($"Your change: {changeTotal}");
 
             int fiveHundredCounter = 0;

@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace ConsoleApp1
+﻿namespace ConsoleApp1
 {
     internal class Program
     {
@@ -9,7 +7,7 @@ namespace ConsoleApp1
             Calculator calculator = new();
 
             //Read user input and calculate change
-            ReadInput();
+            ReadInput(calculator);
             calculator.CalculateChange();
         }
 
@@ -17,13 +15,12 @@ namespace ConsoleApp1
         /// Reads input through ReadPrize and ReadPayment,
         /// then makes sure that the payment is sufficient for the prize
         /// </summary>
-        static void ReadInput()
+        static void ReadInput(Calculator calculator)
         {
-            Calculator calculator = new();
             bool correctInput;
 
-            ReadPrize();
-            ReadPayment();
+            ReadPrize(calculator);
+            ReadPayment(calculator);
 
             do
             {
@@ -41,7 +38,7 @@ namespace ConsoleApp1
 
                     Console.Clear();
                     Console.WriteLine($"THE PRIZE: {calculator.GetPrize()}");
-                    ReadPayment();
+                    ReadPayment(calculator);
                 }
 
             } while (correctInput == false);
@@ -51,13 +48,10 @@ namespace ConsoleApp1
         /// Reads user-input prize, and makes sure its a valid number,
         /// before setting the Calculator instance variable
         /// </summary>
-        static void ReadPrize()
+        static void ReadPrize(Calculator calculator)
         {
-            Calculator calculator = new();
-
             string readResult;
             bool validInput;
-            bool prizeOK = false;
 
             Console.WriteLine("Enter the prize of your wares:");
 
@@ -82,13 +76,10 @@ namespace ConsoleApp1
         /// Reads user-input payment, and makes sure its a valid number,
         /// before setting the Calculator instance variable
         /// </summary>
-        static void ReadPayment()
+        static void ReadPayment(Calculator calculator)
         {
-            Calculator calculator = new();
-
             string readResult;
             bool validInput;
-            bool prizeOK = false;
 
             Console.WriteLine("And enter the amount you will pay:");
 
